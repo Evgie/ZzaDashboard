@@ -66,15 +66,15 @@ namespace ZzaDashboard.ViewModel
             this.CustomersRepository = new CustomersRepository();
             this.Customer = this.CustomersRepository.GetCustomerAsync(new Guid("11DA4696-CEA3-4A6D-8E83-013F1C479618")).Result;
             this.SaveCommand = new RelayCommand(this.SaveExecute, this.SaveCanExecute);
-            this.Customers = new ObservableCollection<Customer>();
+            this.Customers = new ObservableCollection<Customer>(CustomersRepository.GetCustomersAsync().Result);
             //this.InitializeCustomers();
         }
 
-        //public async void InitializeCustomers(object obj)
-        //{
+        public async void InitializeCustomers()
+        {
 
-        //    this.Customers = await CustomersRepository.GetCustomersAsync();
-        //}
+            this.Customers = new ObservableCollection<Customer>(await CustomersRepository.GetCustomersAsync());
+        }
 
         public ICommand SaveCommand { get; set; }
 

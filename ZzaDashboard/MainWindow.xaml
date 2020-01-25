@@ -9,19 +9,19 @@
     <Window.DataContext>
         <CustomerViewModel:CustomerEditViewModel/>
     </Window.DataContext>
-    <!--<Window.Resources>
+    <Window.Resources>
         <DataTemplate x:Key="customerViewTemplate">
             <CustomerControl:CustomerEditView/>
         </DataTemplate>
-    </Window.Resources>-->
-    <Window.Resources>
+    </Window.Resources>
+    <!--<Window.Resources>
         <DataTemplate DataType="{x:Type model:Customer}">
             <CustomerControl:CustomerEditView/>
         </DataTemplate>
-    </Window.Resources>
+    </Window.Resources>-->
     <Grid>
         <!--CustomerControl:CustomerEditView/-->
-        <!--ListView ItemsSource="{Binding Path=Customers}" ItemTemplate="{StaticResource customerViewTemplate}"/-->
-        <ListView ItemsSource="{Binding Path=Customers}"/>
+        <ListView ItemsSource="{Binding Path=Customers}" ItemTemplate="{StaticResource customerViewTemplate}"/>
+        <!--<ListView ItemsSource="{Binding Path=Customers}"/>-->
     </Grid>
 </Window>
